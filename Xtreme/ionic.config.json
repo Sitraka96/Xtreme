@@ -1,0 +1,7 @@
+{
+  "name": "Xtrem_mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
