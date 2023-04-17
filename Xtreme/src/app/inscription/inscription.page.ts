@@ -35,12 +35,13 @@ export class InscriptionPage implements OnInit {
       'mot_de_passe_client': this.mot_de_passe_client
     }
     if(this.mot_de_passe_client === this.confirme_mdp){
+      console.log("reto le izy e", this.data);
       this.authService.inscription(this.data).subscribe(res =>{
-        this.authService.connexion(this.datalog).subscribe();
+        this.authService.connexion(this.datalog).subscribe(); //tsy tonga any @ base
       });
     }
     else{
-      this.authService.showAlert('les deux mots de passe ne correspond pas')
+      this.authService.showAlert('les deux mots de passe ne correspond pas');
     }
   }
 
