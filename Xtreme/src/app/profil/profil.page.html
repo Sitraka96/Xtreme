@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    Welcome to the members only area!
+
+    <p>{{ myData }}</p>
+
+    <ion-button expand="full" (click)="loadSpecialInfo()">Load Special Info</ion-button>
+    <ion-button expand="full" (click)="logout()">Logout</ion-button>
+    <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button>
+</ion-content>
