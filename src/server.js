@@ -54,7 +54,9 @@ app.use(
 app.use(fileUpload({
     createParentPath: true
 }));
-
+app.get('/index',function(req,res){
+  res.status(200).json({message:'hello world'})
+})
 
 app.use('/', routes);
 

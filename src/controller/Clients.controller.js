@@ -1,12 +1,12 @@
 /**
  * 
- * RAKOTOMALALA sitrakaniaina
+ * Rakotondrazanaka Bruno
  * 21-03-2023
  * entreprise d'accueil : A2MI
  * projet xtreme_tournoi
  * 
  */
-const crypto = require('crypto');
+const crypto  = require('crypto') ;
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const fileupload = require('express-fileupload');
@@ -27,15 +27,15 @@ function createToken(client)
     }, config.secretKeys.Clients,{expiresIn: 86400})
 }
 
-//traitement d'un nouveau client dans le controller lors de l'inscription
+//traitement d'un nouveau client dans  le controller lors de l'inscription
 exports.enregistrementNouveauClient = async(request, response) => {
     console.log(typeof request.body)
     console.log(Object.keys(request.body).length);
-    if(request.body.constructor === Object && Object.keys(request.body).length === 0){
-        console.log("veuiller remplire les champs")
-        response.status(500).json({message:"veuiller remplire les champs"})
-    }
-    else{
+    // if(request.body.constructor === Object && Object.keys(request.body).length === 0){
+    //     console.log("veuiller remplire les champs")
+    //     response.status(500).json({message:"veuiller remplire les champs"})
+    // }
+    // else{
         await Clients.findByPseudo(request.body.pseudo_client, (err, result) =>
         {
             if(err)
@@ -67,7 +67,7 @@ exports.enregistrementNouveauClient = async(request, response) => {
                                     code = crypto.createHash('sha3-512').update(a_coder).digest('hex');
                                     nouveau_client.date_de_creation = date_de_creation_compte;
                                     nouveau_client.mot_de_passe_client = mot_de_passe_client_hacher;
-                                    nouveau_client.code = code;
+                                    //nouveau_client.code = code;
 
                                     Clients.createClient(nouveau_client, (err, result)=>{
                                         if(err)
@@ -170,7 +170,7 @@ exports.enregistrementNouveauClient = async(request, response) => {
             }
                 
         })  
-    }
+    // }
 };
 
 

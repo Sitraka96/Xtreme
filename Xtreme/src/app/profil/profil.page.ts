@@ -10,7 +10,13 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./profil.page.scss'],
 })
 export class ProfilPage implements OnInit {
-
+  /*userApiUrl = 'http://localhost:8080/profil';
+  userData = {
+    nom_client: '',
+    prenom_client: '',
+    pseudo_client: ''
+  };*/
+    
   myData:any;
   constructor(
     private http: HttpClient,
@@ -19,7 +25,25 @@ export class ProfilPage implements OnInit {
 		private toastController: ToastController
   ) { }
 
-  ngOnInit() {
+  /*readAPI(URL: string) {
+    return this.http.get(URL);
+  }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+		private storage: Storage,
+		private toastController: ToastController
+  ) {
+    this.readAPI(this.userApiUrl)
+      .subscribe((data) => {
+      console.log("reto le info an le user", data);
+      this.userData.nom_client = data['nom_client'];
+      this.userData.prenom_client = data['prenom_client'];
+      this.userData.pseudo_client = data['pseudo_client'];
+    });
+  }*/
+
+ ngOnInit() {
   }
   loadSpecialInfo() {
 		this.authService.getSpecialData().subscribe((res) => {
@@ -39,11 +63,19 @@ export class ProfilPage implements OnInit {
 		});
 		toast.then((toast) => toast.present());
 	}
-  // ionViewWillEnter() {
+  /*this.movieApiUrl = 'http://localhost:8080/profil';
+  this.readAPI(this.movieApiUrl)
+    .subscribe((data) => {
+    console.log(data);
+    this.movieData.title = data['Title'];
+    this.movieData.description = data['Plot'];
+    this.movieData.imageUrl = data['Poster'];
+  });*/
+  ionViewWillEnter() {
 
-  //   this.http.get('http://localhost:8080/profil').subscribe(data => {
-  //     this.myData = data;
-  //     console.log(this.myData);
-  //   });
-  // }
+    this.http.get('http://localhost:8080/profil').subscribe(data => {
+      this.myData = data;
+      console.log(this.myData);
+    });
+  }
 }
