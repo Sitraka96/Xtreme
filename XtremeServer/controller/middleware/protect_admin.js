@@ -12,7 +12,7 @@ module.exports = async ( req, res, next ) => {
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
     let token = "";
-    console.log(req.session);
+
     if(req.headers['authorization'])
         token = req.headers['authorization'].split(' ')[1];
 

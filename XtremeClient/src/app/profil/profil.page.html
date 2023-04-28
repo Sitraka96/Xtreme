@@ -1,0 +1,73 @@
+<ion-content>
+  <div class="param">
+    <ion-menu contentId="main-content">
+      <ion-menu-toggle>
+        <ion-icon name="settings"></ion-icon>
+        <ion-list>
+          <ion-item>Info</ion-item>
+          <ion-item>Gerer</ion-item>
+          <ion-button expand="full" (click)="logout()">Déconnexion</ion-button>
+        </ion-list>
+      </ion-menu-toggle>
+    </ion-menu>
+    <div class="ion-page" id="main-content">
+      <ion-menu-toggle>
+        <ion-icon name="settings"></ion-icon>
+      </ion-menu-toggle>
+    </div>
+  </div>
+  <div class="card">
+    <div class="header">
+      <div class="avatar">
+        <img src="../../assets/images/static.jpg" alt="">
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="user-meta ion-text-center">
+        <h3 class="playername">{{ clientConnecte.nom_client }} {{ clientConnecte.prenom_client }}</h3>
+        <h5 class="country">{{ clientConnecte.pseudo_client }}</h5>
+        <h6 class="ranking">Current ranking: <ion-chip>
+          <ion-label>2</ion-label>
+          </ion-chip>
+        </h6>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>  
+  <ion-toolbar>
+      <ion-row>
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="gamePage()">
+            <ion-icon name="game-controller-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="2">
+          <ion-button color="dark"  (click)="statPage()">
+            <ion-icon slot="icon-only" name="stats-chart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="4"   >
+          <ion-fab  vertical="bottom" horizontal="center"   (click)="profilPage()">
+            <ion-fab-button color="light">
+              <ion-icon name="home"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="retraitPage()">
+            <ion-icon name="cash"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark"  (click)="shopPage()">
+            <ion-icon name="bag-handle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+</ion-footer>

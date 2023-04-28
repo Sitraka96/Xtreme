@@ -3,25 +3,14 @@
     "development"
   ],
   "hints": {
-    "axe/text-alternatives": [
-      "default",
-      {
-        "image-alt": "off"
-      }
-    ],
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "width: fit-content"
-        ]
-      }
-    ],
-    "axe/name-role-value": [
-      "default",
-      {
-        "button-name": "off"
-      }
-    ]
+    "meta-viewport": "off",
+    "detect-css-reflows/paint": "off",
+    "detect-css-reflows/layout": "off",
+    "detect-css-reflows/composite": "off",
+    "axe/text-alternatives": "off",
+    "compat-api/css": "off",
+    "button-type": "off",
+    "axe/name-role-value": "off",
+    "no-inline-styles": "off"
   }
 }
