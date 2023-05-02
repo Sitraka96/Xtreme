@@ -1,0 +1,55 @@
+<ion-content>
+  <h2>Shop</h2>
+  <ion-menu contentId="main-content">
+    <ion-menu-toggle>
+      <ion-icon name="settings"></ion-icon>
+      <ion-list>
+        <ion-item>Item 1</ion-item>
+        <ion-item>Item 2</ion-item>
+        <ion-button expand="full" (click)="logout()">Déconnexion</ion-button>
+      </ion-list>
+    </ion-menu-toggle>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-menu-toggle>
+      <ion-icon name="settings"></ion-icon>
+    </ion-menu-toggle>
+  </div>
+</ion-content>
+<ion-footer>  
+  <ion-toolbar>
+      <ion-row>
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="gamePage()">
+            <ion-icon name="game-controller-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="2">
+          <ion-button color="dark"  (click)="statPage()">
+            <ion-icon slot="icon-only" name="stats-chart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="4"   >
+          <ion-fab  vertical="bottom" horizontal="center"   (click)="profilPage()">
+            <ion-fab-button color="light">
+              <ion-icon name="home"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="retraitPage()">
+            <ion-icon name="cash"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark"  (click)="shopPage()">
+            <ion-icon name="bag-handle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+</ion-footer>

@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 const sequelize = require('../config/dbConfig')
 
-var Clients = sequelize.define('client',{
+var Clients = sequelize.define('clients',{
         id_client: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -49,6 +49,7 @@ var Clients = sequelize.define('client',{
         photo_profil : DataTypes.STRING
 
     },{
+        timestamps: false,
         sequelize,
         freezeTableName:true,
         hooks: {
