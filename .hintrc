@@ -11,6 +11,12 @@
     "compat-api/css": "off",
     "button-type": "off",
     "axe/name-role-value": "off",
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ]
   }
 }

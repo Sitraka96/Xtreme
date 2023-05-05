@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { SocketService } from 'src/app/services/socket.service';
+import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Storage } from '@ionic/storage';
 import { NavController, ToastController } from '@ionic/angular';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { Client } from '../Model/Client';
+import { XtremePoint } from '../Model/XtremePoint';
 
 @Component({
   selector: 'app-shop',
@@ -16,13 +18,15 @@ export class ShopPage implements OnInit {
   content: any;
   myData:any;
   clientConnecte:Client=new Client();
+  xtremepoints:any;
   constructor(
     private http: HttpClient,
     private helper: JwtHelperService,
     private authService: AuthService,
 		private storage: Storage,
 		private toastController: ToastController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private socket:SocketService
   ) { }
   gamePage(){
     this.navCtrl.navigateForward('/game');
@@ -39,7 +43,7 @@ export class ShopPage implements OnInit {
   shopPage(){
     this.navCtrl.navigateForward('/shop');
   }
-  ngOnInit() {
+  ngOnInit(): void {
     this.storage.get('access_token').then((token)=>{
       if(token)
       {
@@ -53,7 +57,10 @@ export class ShopPage implements OnInit {
         else
           this.storage.remove('access_token');
       }
-    })
+    });
+    this.http.get('http://localhost:8080/xtremepoint').subscribe(data => {
+      this.xtremepoints = data;
+    });
   }
   loadSpecialInfo() {
 		this.authService.getSpecialData().subscribe((res) => {
@@ -73,4 +80,38 @@ export class ShopPage implements OnInit {
 		});
 		toast.then((toast) => toast.present());
 	}
+  changeDisplay(element:string){
+    
+  }
+  refresh(){
+    this.refreshDisplay();
+  }
+  refreshDisplay(){
+    
+  }
+
+  displayCreate(){
+    
+  }
+  panier(){
+    
+  }
+  printDate(date_:string){
+    var dateNHour:string[];
+    var date:Date;
+    var dateStr;
+    dateNHour = date_.split('T');
+    date = new Date(dateNHour[0]);
+    dateStr = date.toLocaleDateString('fr-FR', { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' });
+
+    return dateStr;
+  }
+
+  printHour(date_:string){
+    var dateNHour:string[];
+    var hour;
+    dateNHour = date_.split('T');
+    hour = "à "+dateNHour[1];
+    return hour;
+  }
 }
