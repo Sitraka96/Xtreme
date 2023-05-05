@@ -7,6 +7,26 @@ ion-content {
         margin-bottom: 1em
     }
   }
+.contaner{
+  max-width: 400px;
+  margin: 0 auto;
+}
+ion-card{
+  height: 70px;
+  display: flex;
+}
+.info{
+  margin-left: 200px;
+  margin-top: 10px;
+}
+ion-card-subtitle{
+  color: #ffe082;
+  font-size: 12px;
+}
+/*ion-card-header.ios{
+  display: flex;
+  //flex-flow: column-reverse;
+}*/
 
 ion-footer{
     border-top: solid rgb(244, 244, 244) 1px;

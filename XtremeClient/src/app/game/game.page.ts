@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { RawgService  } from '../services/rawg.service';
 
 @Component({
   selector: 'app-game',
@@ -8,7 +10,12 @@ import { NavController } from '@ionic/angular';
 })
 export class GamePage implements OnInit {
 
-  constructor( private navCtrl: NavController) { }
+  games:any[] = [];
+  constructor( 
+    private http: HttpClient,
+    private navCtrl: NavController,
+    private rawgService: RawgService
+  ) {}
 
   gamePage(){
     this.navCtrl.navigateForward('/game');
@@ -26,6 +33,10 @@ export class GamePage implements OnInit {
     this.navCtrl.navigateForward('/shop');
   }
   ngOnInit() {
+    this.rawgService.getPopularGames().subscribe((data: any) => {
+      this.games = data.results;
+    });
+
   }
 
 }

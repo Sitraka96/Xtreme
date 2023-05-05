@@ -1,19 +1,10 @@
-/**
- * 
- * Rakotondrazanaka Bruno
- * 21-03-2023
- * entreprise d'accueil : A2MI
- * projet xtreme_tournoi
- * 
- */
-
-
 const express = require('express');
 
 
 const client_controller = require('../controller/Clients.controller');
 const admin_controller =require('../controller/Admin.controller');
 const protectionAdmin = require('../controller/middleware/protect_admin');
+const xtremepoint_controller =require('../controller/XtremePoint.controller');
 
 
 const router = express.Router();
@@ -35,5 +26,11 @@ router.get('/clients',client_controller.listeClients);
 router.post('/admin', admin_controller.adminLogin);
 router.post('/Admin/deconnecter',protectionAdmin, admin_controller.deconnexionAdmin);
 router.get('/admin/verify', protectionAdmin, admin_controller.verify);
+
+router.get('/xtremepoint', xtremepoint_controller.getXtremePoints);
+router.get('/xtremepoint:id_xtremepoint', xtremepoint_controller.getXtremePointById);
+router.post('/addpoint', xtremepoint_controller.ajoutXtremePoint);
+router.put('/updatepoint:id_xtremepoint', xtremepoint_controller.majXtremePoint);
+router.delete('/deletepoint:id_xtremepoint', xtremepoint_controller.suprimerXtremePoint);
 
 module.exports = router;

@@ -1,14 +1,24 @@
-<ion-header>
+<ion-header collapse="fade">
   <ion-toolbar>
-    <ion-buttons slot="start" side="right">
-      <ion-menu-button></ion-menu-button>      
-    </ion-buttons>
-    <ion-title>Game</ion-title>
+    <ion-title>Jeux</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content scroll-y="false">
+  <div class="ion-content-scroll-host ion-padding">
+    <div class="container">
+      <ion-searchbar></ion-searchbar>
+    </div>
+    <div class="container">
+      <ion-card *ngFor="let game of games">
+        <img src="{{ game.background_image }}"/>
+        <div class="info">
+          <h3 class="title">{{ game.name }}</h3>
+          <p>{{ game.released }}</p>
+        </div>
+      </ion-card>
+    </div>  
+  </div>
 </ion-content>
 <ion-footer>  
   <ion-toolbar>

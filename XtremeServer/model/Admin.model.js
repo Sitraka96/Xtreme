@@ -59,5 +59,5 @@ Admin.prototype.validPassword = async function(password) {
     return await bcrypt.compare(password, this.password_admin);
   };
 
-module.exports = Admin
+module.exports = Admin;
 
