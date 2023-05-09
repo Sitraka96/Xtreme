@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.page.html',
@@ -15,7 +17,8 @@ export class ConnexionPage implements OnInit {
   constructor(
     private http:HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private navCtrl: NavController
     ) { }
 
   ngOnInit() {
@@ -23,6 +26,12 @@ export class ConnexionPage implements OnInit {
   connexion(){
     this.data = { email_client: this.email_client, mot_de_passe_client: this.mot_de_passe_client };
     this.authService.connexion(this.data).subscribe();
+  }
+  loginSteam(){
+    this.navCtrl.navigateForward('/gmail');
+  }
+  loginEmail(){
+    this.navCtrl.navigateForward('http://localhost:3000/api/auth/stea');
   }
 
 }

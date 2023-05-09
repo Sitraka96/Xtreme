@@ -1,21 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <div class="param">
-    <ion-menu contentId="main-content">
-      <ion-menu-toggle>
-        <ion-icon name="settings"></ion-icon>
-        <ion-list>
-          <ion-item>Info</ion-item>
-          <ion-item>Gerer</ion-item>
-          <ion-button expand="full" (click)="logout()">Déconnexion</ion-button>
-        </ion-list>
-      </ion-menu-toggle>
-    </ion-menu>
-    <div class="ion-page" id="main-content">
-      <ion-menu-toggle>
-        <ion-icon name="settings"></ion-icon>
-      </ion-menu-toggle>
-    </div>
-  </div>
   <div class="card">
     <div class="header">
       <div class="avatar">
@@ -26,9 +17,8 @@
       <div class="user-meta ion-text-center">
         <h3 class="playername">{{ clientConnecte.nom_client }} {{ clientConnecte.prenom_client }}</h3>
         <h5 class="country">{{ clientConnecte.pseudo_client }}</h5>
-        <h6 class="ranking">Current ranking: <ion-chip>
-          <ion-label>2</ion-label>
-          </ion-chip>
+        <h6 class="ranking" color="dark">Current ranking: 
+          <ion-chip><ion-label>2</ion-label></ion-chip>
         </h6>
       </div>
     </div>

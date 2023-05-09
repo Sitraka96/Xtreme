@@ -9,7 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {Storage } from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
-
+import { Platform } from '@ionic/angular';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 export function jwtOptionsFactory(storage:any){
   return{
@@ -20,11 +22,11 @@ export function jwtOptionsFactory(storage:any){
   }
 }
 @NgModule({
-
   declarations: [AppComponent],
+  entryComponents: [],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
+    BrowserModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
@@ -36,7 +38,15 @@ export function jwtOptionsFactory(storage:any){
       }
     })
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    Platform,
+    StatusBar,
+    SplashScreen,
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy 
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

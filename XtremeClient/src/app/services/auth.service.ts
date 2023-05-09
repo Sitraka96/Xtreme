@@ -5,7 +5,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 import { Storage } from '@ionic/storage'
 import { environment } from '../../environments/environment';
 import {tap, catchError} from 'rxjs/operators';
-import {BehaviorSubject} from 'rxjs'
+import {BehaviorSubject, Observable, from, of} from 'rxjs'
 
 const TOKEN_KEY = 'access_token';
 
@@ -70,13 +70,15 @@ export class AuthService {
 		);
 	}
 
-  logout() {
-		this.storage.remove(TOKEN_KEY).then(() => {
+	logout(): Observable<void> {
+		return from(this.storage.remove(TOKEN_KEY)).pipe(
+		  tap(() => {
 			this.authenticationState.next(false);
-		});
-	}
+		  })
+		);
+	  }
 
-  getSpecialData() {
+  	getSpecialData() {
 		return this.http.get(`${this.url}/clients`).pipe(
 			catchError((e) => {
 				let status = e.status;
@@ -93,7 +95,7 @@ export class AuthService {
 		return this.authenticationState.value;
 	}
 
-  showAlert(msg:any) {
+  	showAlert(msg:any) {
 		let alert = this.alertController.create({
 			message: msg,
 			header: 'Error',
