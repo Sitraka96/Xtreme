@@ -27,6 +27,8 @@
     "mysql2": "^3.2.3",
     "nodemailer": "^6.9.1",
     "nodemailer-express-handlebars": "^6.1.0",
+    "passport": "^0.6.0",
+    "passport-steam": "^1.0.17",
     "password-generator": "^2.3.2",
     "sequelize": "^6.31.0",
     "socket.io": "^4.6.1"

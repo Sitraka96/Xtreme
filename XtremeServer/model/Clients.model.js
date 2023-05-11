@@ -58,13 +58,13 @@ const Clients = sequelize.define('clients', {
     hooks: {
       beforeCreate: async (client) => {
         if (client.mot_de_passe_client) {
-          const salt = await bcrypt.genSaltSync(10);
+          const salt = bcrypt.genSaltSync(10);
           client.mot_de_passe_client = bcrypt.hashSync(client.mot_de_passe_client, salt);
         }
       },
       beforeUpdate: async (client) => {
         if (client.mot_de_passe_client) {
-          const salt = await bcrypt.genSaltSync(10);
+          const salt = bcrypt.genSaltSync(10);
           client.mot_de_passe_client = bcrypt.hashSync(client.mot_de_passe_client, salt);
         }
       },

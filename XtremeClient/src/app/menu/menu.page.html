@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <div side="end" type="push" contentId="main">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title>End Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+        </ion-list>
+      </ion-content>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  Contenu de la page
+</ion-content>
+
+<ng-container *ngIf="!isHomePage">
+  <app-menu></app-menu>
+</ng-container>

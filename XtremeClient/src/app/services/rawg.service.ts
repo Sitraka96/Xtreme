@@ -10,6 +10,6 @@ export class RawgService {
   constructor(private http: HttpClient) { }
 
   getPopularGames() {
-    return this.http.get(`https://api.rawg.io/api/games?key=${this.API_KEY}&ordering=-rating&page_size=5`);
+    return this.http.get(`https://api.rawg.io/api/games?key=${this.API_KEY}&ordering=-rating&page_size=10`);
   }
 }
