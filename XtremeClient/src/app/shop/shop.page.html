@@ -8,9 +8,22 @@
 </ion-header>
 <ion-content scroll-y="false">
   <div class="ion-content-scroll-host ion-padding">
+    <div class="ion-video">
+      <ion-card>
+        <video autoplay muted controls>
+          <source src="http://img.mobiscroll.com/demos/trailer_iphone.m4v" type="video/x-m4v">
+        </video>
+        <ion-card-header>
+          <ion-card-title>Big Buck Bunny</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Open movie made with open source software. Check out its trailer!
+        </ion-card-content>
+      </ion-card>
+    </div>
     <div class="ion-page">
       <div class="container">
-        <ion-card *ngFor="let xtremepoint of xtremepoints">
+        <ion-card *ngFor="let xtremepoint of xtremepoints" (click)="panierPage(xtremepoint)">
           <img src="https://api.dicebear.com/6.x/icons/svg?seed=Peanut" alt="avatar" />
           <div class="info">
             <ion-card-title>{{ xtremepoint.titre_xtremepoint }}</ion-card-title>

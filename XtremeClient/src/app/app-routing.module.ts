@@ -44,7 +44,11 @@ const routes: Routes = [
   {
     path: 'retrait',
     loadChildren: () => import('./retrait/retrait.module').then( m => m.RetraitPageModule)
+  },  {
+    path: 'panier',
+    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
   },
+
 ];
 
 @NgModule({

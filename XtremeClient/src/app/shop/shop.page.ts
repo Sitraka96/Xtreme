@@ -7,6 +7,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { Client } from '../Model/Client';
 import { XtremePoint } from '../Model/XtremePoint';
+import { PanierService } from '../services/panier.service';
 
 @Component({
   selector: 'app-shop',
@@ -14,11 +15,11 @@ import { XtremePoint } from '../Model/XtremePoint';
   styleUrls: ['./shop.page.scss'],
 })
 export class ShopPage implements OnInit {
-
   content: any;
   myData:any;
   clientConnecte:Client=new Client();
   xtremepoints:any;
+  panierService: any;
   constructor(
     private http: HttpClient,
     private helper: JwtHelperService,
@@ -80,21 +81,15 @@ export class ShopPage implements OnInit {
 		});
 		toast.then((toast) => toast.present());
 	}
-  changeDisplay(element:string){
-    
-  }
-  refresh(){
-    this.refreshDisplay();
-  }
-  refreshDisplay(){
-    
-  }
 
-  displayCreate(){
-    
-  }
-  panier(){
-    
+  panierPage(xtremepoint: XtremePoint){
+    this.navCtrl.navigateForward('/panier', { 
+      queryParams: { 
+        id: xtremepoint.id_xtremepoint, 
+        titre: xtremepoint.titre_xtremepoint, 
+        prix: xtremepoint.prix_xtremepoint 
+      } 
+    });
   }
   printDate(date_:string){
     var dateNHour:string[];

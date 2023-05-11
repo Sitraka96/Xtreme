@@ -19,18 +19,24 @@
     "express-fileupload": "^1.4.0",
     "express-handlebars": "^7.0.2",
     "express-session": "^1.17.3",
+    "helmet": "^7.0.0",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.3",
+    "node-steam-openid": "^1.0.1",
     "nodemailer": "^6.9.1",
     "nodemailer-express-handlebars": "^6.1.0",
     "passport": "^0.6.0",
     "passport-steam": "^1.0.17",
     "password-generator": "^2.3.2",
     "sequelize": "^6.31.0",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "steam-openid": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node-steam-openid": "^1.0.0"
   }
 }

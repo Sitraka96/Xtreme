@@ -1,5 +1,6 @@
 const express = require('express');
-
+const passport = require('passport');
+const steamAuth = require('node-steam-openid');
 
 const client_controller = require('../controller/Clients.controller');
 const admin_controller =require('../controller/Admin.controller');
@@ -32,5 +33,16 @@ router.get('/xtremepoint:id_xtremepoint', xtremepoint_controller.getXtremePointB
 router.post('/addpoint', xtremepoint_controller.ajoutXtremePoint);
 router.put('/updatepoint:id_xtremepoint', xtremepoint_controller.majXtremePoint);
 router.delete('/deletepoint:id_xtremepoint', xtremepoint_controller.suprimerXtremePoint);
+router.get('/login', passport.authenticate('steam'));
+
+router.get('/', (req, res) => {
+    res.send(req.user);
+});
+router.get('/api/auth/steam', passport.authenticate('steam', {failureRedirect: '/'}), function (req, res) {
+    res.redirect('/')
+   });
+router.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirect: '/'}), function (req, res) {
+    res.redirect('/')
+});
 
 module.exports = router;

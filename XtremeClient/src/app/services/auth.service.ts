@@ -13,6 +13,12 @@ const TOKEN_KEY = 'access_token';
   providedIn: 'root'
 })
 export class AuthService {
+  isTokenExpired(token: any) {
+    throw new Error('Method not implemented.');
+  }
+  decodeToken(token: any) {
+    throw new Error('Method not implemented.');
+  }
   url = environment.url;
   client = null;
   authenticationState = new BehaviorSubject(false);
