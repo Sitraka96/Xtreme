@@ -1,0 +1,102 @@
+<ion-content>
+  <div class="logo">
+    <ion-grid class="ion-align-items-center">
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8" class="add_margin">
+          <div>
+            <ion-grid class="ion-align-items-center">
+              <ion-row>
+                <ion-col size="2"></ion-col>
+                <ion-col size="8">
+                  <ion-img src="../../assets/logo/logo.png"></ion-img>
+                </ion-col>
+                <ion-col size="2"></ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </div>
+          <ion-label  ><span class="color_text">Joue, Gagne, Retire</span></ion-label>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="padding">
+    <form (ngSubmit)="connexion()">
+      <ion-item>
+        <ion-label color="light">Email :</ion-label>
+        <ion-input [(ngModel)] = "email_client"  name="email_client" type="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Mot de passe :</ion-label>
+        <ion-input [(ngModel)] = "mot_de_passe_client"  name="mot_de_passe_client" type="password" required></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-button color="light" fill="clear" slot="end">Mot de passe oublier ?</ion-button>
+      </ion-item>
+      <ion-button color="light" fill="outline" shape="round" expand="block" type="submit">Connexion</ion-button>
+    </form>
+
+    <br/>
+    <ion-button routerLink="/inscription" shape="round" expand="block">Inscription</ion-button>
+    <ion-grid class="ion-align-items-center">
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8" class="text-center">
+          <ion-label color="light" >Ou connectez-vous avec</ion-label>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="connecter-avec">
+      <ion-button class="mail" ><ion-icon name="mail-outline" slot="start"></ion-icon>Gmail</ion-button>
+      <ion-button class="steam" href="http://localhost:8080/api/auth/steam"><ion-icon name="logo-steam" slot="start"></ion-icon>Steam</ion-button>
+      <ion-button class="xbox"><ion-icon name="logo-xbox" slot="start"></ion-icon>Xbox</ion-button>
+    </div>
+  </div>
+</ion-content>
+<!--<ion-content >
+  <div class="padding">
+    
+    <div class="logo">
+      <img src="../../assets/logo/logo.png">
+    </div>
+
+    <div class="form">
+      <ion-item >
+        <ion-label color="light">Email</ion-label>
+        <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color="light">Mot de passe</ion-label>
+        <ion-input color="light" type="password" placeholder="Mot de passe"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-button color="light" slot="end" fill="clear">Mot de passe oublié ?</ion-button>
+      </ion-item>
+  
+      <ion-button color="light" expand="block" shape="round" fill="outline">Connexion</ion-button>
+      <br>
+      <ion-button color="tertiary" expand="block" shape="round">Inscription</ion-button>
+    </div>
+    <ion-grid class="ion-align-items-center">
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8" class="text-center">
+          <ion-label color="light" >Ou connectez-vous avec</ion-label>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <div class="flex">
+      <ion-button class="mail"><ion-icon slot="start" name="logo-google"></ion-icon>Google</ion-button>
+      <ion-button class="steam"><ion-icon slot="start" name="logo-steam"></ion-icon>Steam</ion-button>
+    </div>
+
+  </div>
+</ion-content>-->

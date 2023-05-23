@@ -12,6 +12,7 @@ const TOKEN_KEY = 'access_token';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   isTokenExpired(token: any) {
     throw new Error('Method not implemented.');

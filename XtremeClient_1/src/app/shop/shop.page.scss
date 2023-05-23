@@ -1,0 +1,34 @@
+ion-content {
+    //--ion-background-color:linear-gradient(#212225,#212c35);
+    position: relative;
+  
+    ion-button {
+        margin-top: 1em;
+        margin-bottom: 1em
+    }
+  }
+.contaner{
+  max-width: 400px;
+  margin: 0 auto;
+}
+ion-card{
+  height: 70px;
+  display: flex;
+}
+.info{
+  margin-left: 200px;
+  margin-top: 10px;
+}
+ion-card-subtitle{
+  color: #ffe082;
+  font-size: 12px;
+}
+/*ion-card-header.ios{
+  display: flex;
+  //flex-flow: column-reverse;
+}*/
+
+ion-footer{
+    border-top: solid rgb(244, 244, 244) 1px;
+    background-color: #212c35;
+  }

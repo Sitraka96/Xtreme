@@ -12,6 +12,7 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 export function jwtOptionsFactory(storage:any){
   return{
@@ -41,6 +42,7 @@ export function jwtOptionsFactory(storage:any){
   providers: [
     Platform,
     StatusBar,
+    InAppBrowser,
     SplashScreen,
     { 
       provide: RouteReuseStrategy, 

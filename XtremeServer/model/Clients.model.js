@@ -51,6 +51,9 @@ const Clients = sequelize.define('clients', {
     code_de_modification: {
       type: DataTypes.STRING,
     },
+    steamId: {
+      type: DataTypes.INTEGER,
+    },
   }, {
     timestamps: false,
     sequelize,

@@ -51,9 +51,9 @@
       </ion-row>
     </ion-grid>
     <div class="connecter-avec">
-      <ion-button class="mail" ><ion-icon name="mail-outline" slot="start"></ion-icon>Gmail</ion-button>
-      <ion-button class="steam" href="http://localhost:8080/api/auth/steam"><ion-icon name="logo-steam" slot="start"></ion-icon>Steam</ion-button>
-      <ion-button class="xbox"><ion-icon name="logo-xbox" slot="start"></ion-icon>Xbox</ion-button>
+      <ion-button class="mail" (click)="loginGmail()"><ion-icon name="mail-outline" slot="start"></ion-icon>Gmail</ion-button>
+      <ion-button class="steam" (click)="loginSteam()"><ion-icon name="logo-steam" slot="start"></ion-icon>Steam</ion-button>
+      <ion-button class="xbox" (click)="loginXbox()"><ion-icon name="logo-xbox" slot="start"></ion-icon>Xbox</ion-button>
     </div>
   </div>
 </ion-content>

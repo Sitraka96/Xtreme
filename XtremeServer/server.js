@@ -32,14 +32,28 @@ const sessionMiddleware = session({
 // Sessions accessible via req.session
 app.use(sessionMiddleware);
 
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://steamloopback.host https://* http://* https://steamcommunity.com/");
+  next();
+});
+
 app.use(cors({
+  allowedHeaders: ['sessionId', 'Content-Type', 'authorization', 'x-csrftoken'],
+  exposedHeaders: ['sessionId'],
+  origin: ['http://localhost:8080', 'http://localhost:8100', 'http://localhost:4200'],
+  credentials: true,
+  preflightContinue: false,
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+}));
+
+/*app.use(cors({
     allowedHeaders: ['sessionId', 'Content-Type', 'authorization', ' x-csrftoken'],
     exposedHeaders: ['sessionId'],
     origin:['http://localhost:8080', 'http://localhost:8100','http://localhost:4200'],
     credentials: true,
     preflightContinue: false,
     methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"]
-}));
+}));*/
 
 app.use(fileUpload({
     createParentPath: true
@@ -67,6 +81,7 @@ passport.serializeUser((user, done) => {
    });
   }
  ));
+ 
  app.use(session({
   secret: 'Whatever_You_Want',
   saveUninitialized: true,

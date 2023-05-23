@@ -10,7 +10,7 @@ export class Client
     date_de_modification:string="";
     photo_profil:string="";
     point_client:number=0;
-
+    steamId:number=0;
   }
 
 

@@ -12,11 +12,36 @@ const Clients = require('../model/Clients.model');
 const OriginClient = process.env.OriginClient;
 const secretKey = process.env.secretKey_user;
 
+//traitement d'identifiant par Steam
+async function enregistrerSteamId(steamId) {
+  try {
+    await sequelize.sync();
+    
+    // Vérifier si le steamId existe déjà dans la base de données
+    const existingClient = await Clients.findOne({
+      where: { steamId }
+    });
+    
+    if (existingClient) {
+      console.log('L\'identifiant Steam existe déjà dans la base de données');
+      return;
+    }
+    
+    // Enregistrer le steamId s'il n'existe pas déjà
+    await Clients.create({ steamId });
+    console.log('Identifiant Steam enregistré avec succès dans la base de données');
+  } catch (error) {
+    console.error('Erreur lors de l\'enregistrement de l\'identifiant Steam dans la base de données', error);
+  }
+}
+
 //traitement d'un nouveau client dans le controller lors de l'inscription
 exports.enregistrementNouveauClient = async(req, res) => {
   res.setHeader("Access-Control-Allow-Origin", OriginClient);
   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+
+  loginSteam();
 
     try {
       let parse = req.body;
@@ -86,7 +111,11 @@ exports.enregistrementNouveauClient = async(req, res) => {
           mot_de_passe_client: mot_de_passe_client,
           photo_profil: profil
         });
-  
+
+        if (steamId) {
+          // Appel fonction pour enregistrer l'identifiant Steam dans la base de données
+          await enregistrerSteamId(steamId);
+        }
         res.status(200).json({
           success: true
         });
