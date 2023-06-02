@@ -1,0 +1,52 @@
+{
+  "name": "my-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~16.0.2",
+    "@angular/cdk": "^16.0.1",
+    "@angular/common": "~16.0.2",
+    "@angular/compiler": "~16.0.2",
+    "@angular/core": "~16.0.2",
+    "@angular/forms": "~16.0.2",
+    "@angular/material": "^16.0.1",
+    "@angular/platform-browser": "~16.0.2",
+    "@angular/platform-browser-dynamic": "~16.0.2",
+    "@angular/router": "~16.0.2",
+    "@apollo/client": "^3.7.14",
+    "@npmcli/move-file": "^3.0.0",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "apollo-angular": "^5.0.0",
+    "core-js": "^3.30.2",
+    "graphql": "^16.6.0",
+    "ngx-toastr": "^17.0.2",
+    "rxjs": "~7.8.1",
+    "socket.io-client": "^4.6.1",
+    "source-map-resolve": "^0.6.0",
+    "sourcemap-codec": "^1.4.8",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~16.0.2",
+    "@angular/cli": "~16.0.2",
+    "@angular/compiler-cli": "~16.0.2",
+    "@types/angular": "^1.8.5",
+    "@types/jasmine": "~4.3.1",
+    "@types/node": "^20.2.3",
+    "@types/paypal__checkout-server-sdk": "^1.0.5",
+    "jasmine-core": "~5.0.0",
+    "karma": "~6.4.2",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~5.0.4"
+  }
+}

@@ -1,0 +1,29 @@
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+
+<form (ngSubmit)="login()">
+  <div id="logo" align="center"></div> <h3 style="color:#3A7EA1">Administration</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [formControl]="emailControl" matInput placeholder="@gmail.com" type="email">
+    <mat-error *ngIf="emailControl.invalid">{{ getErrorMessageEmail() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mot de passe</mat-label>
+    <input matInput [formControl]="passwordControl" type="password" placeholder="Password">
+    <mat-error *ngIf="passwordControl.invalid">{{ getErrorMessagePassword() }}</mat-error>
+  </mat-form-field>
+
+  <!-- Affichage du message d'erreur si un champ est vide -->
+
+  <button class="btn" type="submit" [disabled]="isLoading">
+    <span *ngIf="!isLoading">Connexion</span>
+    <ng-container *ngIf="isLoading">
+        <img src="assets/images/logo_fonce.png" alt="Logo" class="spinner-img" width="40">
+    </ng-container>
+</button>
+</form>

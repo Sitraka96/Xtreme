@@ -1,0 +1,50 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- User Profile-->
+                <li class="sidebar-item pt-2">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLinkActive="active" [routerLink]="['/dashboard']" aria-expanded="false">
+                        <i class="fa fa-clock" aria-hidden="true"></i>
+                        <span class="hide-menu">Tableau  de bord</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLinkActive="active" [routerLink]="['/retrait']" aria-expanded="false">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span class="hide-menu">Historique de retrait</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"  routerLinkActive="active"  [routerLink]="['/paiement']" aria-expanded="false">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span class="hide-menu">Historique de paiement</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"  routerLinkActive="active"  [routerLink]="['/client']" aria-expanded="false">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="hide-menu">Clients</span>
+                    </a>
+                </li>
+
+
+                <li class="text-center p-20 upgrade-btn displayMobil" style="padding: 20px">
+                    <a [routerLink]="" class="btn d-grid btn-danger text-white" target="_blank">
+                        <i class="fa fa-sign-out-alt"> logout</i> </a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

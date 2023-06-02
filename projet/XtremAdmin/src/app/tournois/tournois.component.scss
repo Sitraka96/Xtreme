@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
+//css sure le table
+.container-fluid .table-data .head h3 {
+  margin-right: auto;
+  font-size: 28px;
+  font-weight: 700;
+  color: #3A7EA1;
+}
+.container-fluid .table-data > div {
+	border-radius: 20px;
+  background: #fff;
+	padding: 24px;
+	overflow-x: auto;
+}
+.container-fluid .table-data .order {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+.container-fluid .table-data .order table {
+	width: 100%;
+	border-collapse: collapse;
+  margin-top: 4%;
+}
+.container-fluid .table-data .order table th {
+	padding-bottom: 12px;
+	font-size: 13px;
+	text-align: left;
+	border-bottom: 1px solid #8898aa;
+}
+.container-fluid .table-data .order table td {
+	padding: 16px 0;
+}
+.container-fluid .table-data .order table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+.container-fluid .table-data .order table td img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.container-fluid .table-data .order table tbody tr:hover {
+	background:#212B37;
+  color: #fff;
+}
+
+.container-fluid .table-data .order table tr td .status {
+  font-size: 12px;
+  padding: 6px 16px;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 900;
+}
+.container-fluid .table-data .order table tr td p {
+	margin-top: 2px;
+    margin-bottom: 0rem;
+}
+.container-fluid .table-data .order table tr td .status.completed {
+	background: #3C91E6;
+}
+

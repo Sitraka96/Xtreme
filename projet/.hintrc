@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "detect-css-reflows/composite": "off",
+    "detect-css-reflows/paint": "off",
+    "detect-css-reflows/layout": "off",
+    "axe/forms": "off",
+    "button-type": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "meta-viewport": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 112",
+    "not chrome <= 112",
+    "not edge <= 112",
+    "not ios_saf <= 16.4",
+    "not safari <= 16.4",
+    "not samsung <= 20"
+  ]
+}
