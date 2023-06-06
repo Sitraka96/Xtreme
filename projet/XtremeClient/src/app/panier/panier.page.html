@@ -4,6 +4,11 @@
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
     <ion-title>Panier</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -31,9 +36,6 @@
               </div>
             </ion-item>
           </ion-list>
-      
-          
-      
           <ion-item>
             <ion-label>Total</ion-label>
             <ion-badge slot="end">{{ getTotal() | currency:'XOF':'symbol-narrow' }}</ion-badge>
@@ -41,8 +43,8 @@
         </ion-card-content>
       </ion-card>
     </div>
-    <div class="container">
-      <form (ngSubmit) = "onRegister()" enctype="multipart/form-data">
+    <div class="container-panier">
+      <!--<form (ngSubmit) = "onRegister()" enctype="multipart/form-data">
         <div class="container-body">
           <div class="container form-container">
             <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-7 col-xlg-12">
@@ -67,7 +69,10 @@
             </div>
           </div>
         </div>
-      </form>
+      </form>-->
+      <div id="paypalButton"></div>
+
     </div>
   <!--</div>-->
 </ion-content>
+<script src="https://www.paypal.com/sdk/js?client-id=AUxLk0gxebjIABeztTX-1UDbtDwXBrAYmNLTfGYm2oUVm9xlh-3VBIjGfZc9_OCdalBytB1PkKIfL86c"></script>

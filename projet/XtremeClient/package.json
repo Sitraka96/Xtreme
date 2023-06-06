@@ -29,6 +29,7 @@
     "@ionic/cordova-builders": "^9.0.0",
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+    "@paypal/paypal-js": "^6.0.0",
     "apollo-angular": "^4.2.1",
     "apollo-client": "^2.6.10",
     "axios": "^1.4.0",

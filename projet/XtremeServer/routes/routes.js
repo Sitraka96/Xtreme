@@ -50,18 +50,8 @@ router.post('/addpoint', xtremepoint_controller.ajoutXtremePoint);
 router.put('/updatepoint:id_xtremepoint', xtremepoint_controller.majXtremePoint);
 router.delete('/deletepoint:id_xtremepoint', xtremepoint_controller.suprimerXtremePoint);
 
-// Route pour créer un paiement PayPal
-router.post('/paiements', paiementController.createPayment);
-
-// Route pour récupérer tous les paiements
-router.get('/paiements', paiementController.getAllPaiement);
-
-// Route d'exécution du paiement avec PayPal
-router.get('/paiements/execute', paiementController.executePayment);
-// Annuler un paiement
-router.get('/paiements/cancel', paiementController.cancelPayment);
-
-
+// Route pour l'enregistrement du paiement
+router.post('/enregistrer-paiement', paiementController.enregistrerPaiement);
 
 // Nouvelle route pour créer un retrait via PayPal
 router.post('/retraits', retraitController.createRetrait);

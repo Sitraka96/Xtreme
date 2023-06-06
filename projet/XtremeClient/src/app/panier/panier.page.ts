@@ -6,6 +6,8 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 import { AuthService } from '../services/auth.service';
 import { PanierService } from '../services/panier.service';
 import { timeStamp } from 'console';
+import { HttpClient } from '@angular/common/http';
+import { loadScript, PayPalScriptOptions } from '@paypal/paypal-js';
 
 @Component({
   selector: 'app-panier',
@@ -30,6 +32,7 @@ export class PanierPage implements OnInit {
   paypal_payment_id: string = "";
   paypal_approval_url: string = "";
   constructor(
+    private http: HttpClient,
     private route: ActivatedRoute,
     private navCtrl: NavController,
     private helper: JwtHelperService,
@@ -117,6 +120,103 @@ export class PanierPage implements OnInit {
     }
 
     return years;
+  }
+
+  paypalButton() {
+    console.log("payment paypal");
+   
+  }
+
+  async ionViewDidEnter() {
+    let paypal;
+    try {
+      paypal = await loadScript({ clientId: "AUxLk0gxebjIABeztTX-1UDbtDwXBrAYmNLTfGYm2oUVm9xlh-3VBIjGfZc9_OCdalBytB1PkKIfL86c" });
+    } catch (error) {
+      console.error("Failed to load the PayPal JS SDK script", error);
+    }
+  
+    if (paypal) {
+      try {
+        if (typeof paypal.Buttons === "function") {
+          await paypal.Buttons({
+            // 3. Configurer la transaction
+            createOrder: function (_data: any, actions: any) {
+              // Les produits à payer avec leurs details
+              var produits = [
+                {
+                  name: "Produit 1",
+                  description: "Description du produit 1",
+                  quantity: 1,
+                  unit_amount: {
+                    value: 1, currency_code
+                      : "USD"
+                  }
+                },
+              ];
+              // Le total des produits
+              var total_amount = produits.reduce(function (total, product) {
+                return total + product.unit_amount.value *
+                  product.quantity;
+              }, 0);
+              // La transaction
+              return actions.order.create({
+                purchase_units: [{
+                  items: produits,
+                  amount: {
+                    value: total_amount,
+                    currency_code: "USD",
+                    breakdown: {
+                      item_total: {
+                        value:
+                          total_amount, currency_code: "USD"
+                      }
+                    }
+                  }
+                }]
+              });
+            },
+            // 4. Capturer la transaction après l'approbation de l'utilisateur
+            onApprove: (data: any, actions: any) => {
+              return actions.order.capture().then((details: any) => {
+                // Récupérer les détails du paiement
+                const amount = details.purchase_units[0].amount.value;
+                const emailAddress = details.payer.email_address;
+                const name = details.payer.name.given_name;
+                const payerId = details.payer.payer_id;
+                const paymentId = details.id;
+                const transactionIDValue = details.purchase_units[0].payments.captures[0].id;
+            
+                // Enregistrer les détails du paiement dans votre base de données
+                const paymentData = {
+                  montant: amount,
+                  email_address: emailAddress,
+                  name: name,
+                  payer_id: payerId,
+                  payment_id: paymentId,
+                  transactionIDValue: transactionIDValue
+      
+                };
+            
+                this.http.post('http://localhost:8080/enregistrer-paiement', paymentData)
+                  .subscribe();
+            
+                // Afficher un message de succès
+                alert(name + ', votre transaction est effectuée. Vous allez recevoir une notification très bientôt lorsque nous validons votre paiement.');
+              });
+            },
+            
+            // 5. Annuler la transaction
+            onCancel: function (data: any) {
+              alert("Transaction annulée !");
+            }
+          }).render("#paypalButton");
+        } else {
+          console.error("Failed to render the PayPal Buttons: paypal.Buttons is not a function");
+        }
+      } catch (error) {
+        console.error("Failed to render the PayPal Buttons", error);
+      }
+    }
   }
 
   onRegister() {
