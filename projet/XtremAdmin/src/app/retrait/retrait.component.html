@@ -1,0 +1,113 @@
+<!-- ============================================================== -->
+<!-- Layout  -->
+<!-- ============================================================== -->
+<app-layout></app-layout>
+<!-- ============================================================== -->
+<!-- End layout  -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper" style="min-height: 250px;">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Gestion de retrait</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <!-- <ol class="breadcrumb ms-auto">
+                      <li><a [routerLink]="#" class="fw-normal">Dashboard</a></li>
+                  </ol> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- /.col-lg-12 -->
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid fix-height">
+
+        <div class="table-data">
+            <div class="order">
+              <div class="head">
+                <h3>Retrait</h3>
+              </div>
+              
+              <table [@fadeInOut]>
+                <thead>
+                  <tr>
+                    <th>ID Utilisateur</th>
+                    <th>Email</th>
+                    <th>Montant</th>
+                    <th>ID de Retrait</th>
+                    <th>Statut</th>
+                    <th>Date</th>
+                    <th>Méthode de paiement</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                      <tr *ngFor="let payment of paginatedPayments">
+                        <td>{{ payment.id }}</td>
+                        <td>{{ payment.email_destinataire }}</td>
+                        <td><p class="montant">{{ payment.montant }}</p></td>
+                        <td>{{ payment.paypal_payout_id }}</td>
+                        <td>{{ payment.statut }}</td>
+                        <td>{{ payment.createdAt }}</td>
+                        <td><img src="assets/images/paypal.png" alt="paypal"></td>
+                     
+                      <td>
+                        <button *ngIf="payment.status === 'En attente'" (click)="validateStatus(payment)" [disabled]="payment.isLoading" class="validate-button game-box-shadow">
+                            Valider
+                            <span *ngIf="payment.isLoading" class="spinner"></span>
+                          </button>
+                          
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                  
+              </table>
+              
+              <div class="pagination">
+                <button (click)="prevPage()" [disabled]="currentPage === 1">Précédent</button>
+                <span>{{ currentPage }}</span>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+              </div>
+              
+          </div>
+          
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center"> 2023 © Xtreme Tournoi
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->

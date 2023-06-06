@@ -1,0 +1,74 @@
+<ion-content>
+  <div class="inscription_padding">
+    <form (ngSubmit) = "onRegister()" enctype="multipart/form-data">
+      <div class="logo">
+        <ion-grid class="ion-align-items-center">
+          <ion-row>
+            <ion-col size="2"></ion-col>
+            <ion-col size="8" class="add_margin">
+              <div>
+                <ion-grid class="ion-align-items-center">
+                  <ion-row>
+                    <ion-col size="2"></ion-col>
+                    <ion-col size="8">
+                      <div class="header">
+                        <div class="avatar">
+                          <img [src]="imageSrc" *ngIf="imageSrc" alt="">
+                          <ion-fab vertical="bottom" horizontal="end">
+                            <ion-fab-button >
+                              <div class="icon-input-container">
+                                <ion-icon name="camera"></ion-icon>
+                                <input type="file" [(ngModel)]="photo_profil" name="photo_profil" accept="image/*" (change)="onFileSelected($event)"/>
+                              </div>
+                            </ion-fab-button>
+                          </ion-fab>     
+                        </div>
+                      </div>
+                    </ion-col>
+                    <ion-col size="2"></ion-col>
+                  </ion-row>
+                </ion-grid>
+
+              </div>
+            </ion-col>
+            <ion-col size="2"></ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <br/>
+      <ion-item >
+        <ion-label color="light" >Nom : </ion-label>
+        <ion-input [(ngModel)]="nom_client" name="nom_client" type="text"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label color="light">Prenom : </ion-label>
+        <ion-input [(ngModel)]="prenom_client" name="prenom_client" type="text"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label color="light">Pseudo : </ion-label>
+        <ion-input [(ngModel)]="pseudo_client" name="pseudo_client" type="text"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label color="light">Email : </ion-label>
+        <ion-input [(ngModel)]="email_client" name="email_client" type="email"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label color="light">Mot de passe : </ion-label>
+        <ion-input [(ngModel)]="mot_de_passe_client" name="mot_de_passe_client_client" type="password"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label color="light">Confirmer : </ion-label>
+        <ion-input [(ngModel)]="confirme_mdp" name="confirme_mdp" type="password"></ion-input>
+      </ion-item>
+      <br/>
+      <ion-button shape="round" expand="block" type="submit">S'inscrire</ion-button>
+    </form>
+  </div>
+  <div>
+    <ion-item lines="none">
+      <ion-buttons slot="end">
+        <ion-back-button icon="false" defaultHref="/login" text="Vous avez déjà un compte ?" color="light"></ion-back-button>
+      </ion-buttons>
+    </ion-item>
+  </div>
+</ion-content>

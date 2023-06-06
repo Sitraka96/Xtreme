@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Panier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <!--<div class="ion-content-scroll-host ion-padding">-->
+    <div class="container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Cart <ion-icon name="cart"></ion-icon> <span class="badge">{{ produits.length }}</span></ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let produit of produits">
+              <div class="container">
+                <div class="row">
+                  <div class="6" id="item">
+                    <ion-label slot="start" id="titre">{{ produit.titre }}</ion-label>
+                    <ion-badge slot="end" id="prix">prix: {{ produit.prix }}</ion-badge>
+                  </div>
+                  <div class="6">
+                    <ion-input type="number" [(ngModel)]="produit.qty" placeholder="Quantite"></ion-input>
+                  </div>
+                </div>
+              </div>
+            </ion-item>
+          </ion-list>
+      
+          
+      
+          <ion-item>
+            <ion-label>Total</ion-label>
+            <ion-badge slot="end">{{ getTotal() | currency:'XOF':'symbol-narrow' }}</ion-badge>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="container">
+      <form (ngSubmit) = "onRegister()" enctype="multipart/form-data">
+        <div class="container-body">
+          <div class="container form-container">
+            <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-7 col-xlg-12">
+              <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8 col-lg-8 col-xlg-8 payment-details">
+                <p class="credit-card-title">Credit Card Details</p>
+                <p><input type="text"  [(ngModel)]="email_client" name="email_client" class="long-number" required placeholder="Votre e-mail"></p>
+                <p><input type="number" [(ngModel)]="montant" name="montant" class="long-number" required placeholder="Montant"></p>
+                <div class="bottom-buttons">
+  
+                  <div class="proceed">
+                    <button class="proceed-button">Proceed</button>
+                  </div>
+          
+                  <div class="or">Or</div>
+          
+                  <div class="paypal">
+                    <button class="paypal-button">Pay with <ion-icon name="logo-paypal"></ion-icon>ayPal</button>
+                  </div>
+                
+                </div>	
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  <!--</div>-->
+</ion-content>

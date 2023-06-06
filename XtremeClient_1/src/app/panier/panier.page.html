@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Panier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <!--<div class="ion-content-scroll-host ion-padding">-->
+    <div class="container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Cart <ion-icon name="cart"></ion-icon> <span class="badge">{{ produits.length }}</span></ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let produit of produits">
+              <div class="container">
+                <div class="row">
+                  <div class="6" id="item">
+                    <ion-label slot="start" id="titre">{{ produit.titre }}</ion-label>
+                    <ion-badge slot="end" id="prix">prix: {{ produit.prix }}</ion-badge>
+                  </div>
+                  <div class="6">
+                    <ion-input type="number" [(ngModel)]="produit.qty" placeholder="Quantite"></ion-input>
+                  </div>
+                </div>
+              </div>
+            </ion-item>
+          </ion-list>
+      
+          
+      
+          <ion-item>
+            <ion-label>Total</ion-label>
+            <ion-badge slot="end">{{ getTotal() | currency:'XOF':'symbol-narrow' }}</ion-badge>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="container">
+      <form >
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <h3>Facturation</h3>
+              <ion-item>
+                <ion-label position="floating">Nom et prénom</ion-label>
+                <ion-input type="text" placeholder="John M. Doe"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" placeholder="john@example.com"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Addresse</ion-label>
+                <ion-input type="text" placeholder="542 W. 15th"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Ville</ion-label>
+                <ion-input type="text" placeholder="Antananarivo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">État</ion-label>
+                <ion-input type="text" placeholder="Madagascar"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Zip</ion-label>
+                <ion-input type="text" placeholder="10001"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <h3>Paiement</h3>
+              <ion-item>
+                <ion-label>Cartes acceptées</ion-label>
+                <div class="icon-container">
+                  <ion-icon name="logo-strip" style="color:navy;"></ion-icon>
+                  <ion-icon name="logo-paypal" style="color:red;"></ion-icon>
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Nom sur la carte</ion-label>
+                <ion-input type="text" placeholder="John More Doe"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Numéro de Carte de Crédit</ion-label>
+                <ion-input type="text" placeholder="1111-2222-3333-4444"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Mois exp</ion-label>
+                <ion-input type="text" placeholder="Janvier"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Année d'expiration</ion-label>
+                <ion-input type="text" placeholder="2023"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Code Postal</ion-label>
+                <ion-input type="text" placeholder="101"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item>
+          <ion-label>Adresse de livraison identique à celle de facturation</ion-label>
+          <ion-checkbox checked="true" slot="start"></ion-checkbox>
+        </ion-item>
+        <ion-button expand="block">Continuer à payer</ion-button>
+      </form>
+    </div>
+  <!--</div>-->
+</ion-content>

@@ -1,0 +1,137 @@
+<!-- ============================================================== -->
+<!-- Layout  -->
+<!-- ============================================================== -->
+<app-layout></app-layout>
+<!-- ============================================================== -->
+<!-- End layout  -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper" style="min-height: 250px;">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Gestion des clients</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <!-- <ol class="breadcrumb ms-auto">
+                      <li><a [routerLink]="#" class="fw-normal">Dashboard</a></li>
+                  </ol> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- /.col-lg-12 -->
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid fix-height">
+
+      <div class="table-data">
+        <div class="order">
+          <div class="head">
+            <h3>Liste des clients</h3>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Compte</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pseudo</th>
+                <th>Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients" (click)="displayClientDetails(client)" [ngClass]="{'selected': client === selectedClient}">
+                <td><p>{{ client.id_client }}</p></td>
+                <td>
+                  <ng-container *ngIf="client.id_steam !== null">
+                    <img src="assets/images/steam.png" alt="Steam">
+                  </ng-container>
+                  <ng-container *ngIf="client.id_xbox !== null">
+                    <img src="assets/images/xbox.png" alt="Xbox">
+                  </ng-container>
+                  <ng-container *ngIf="client.id_ps !== null">
+                    <img src="assets/images/ps.png" alt="PS" >
+                  </ng-container>
+                  <ng-container *ngIf="client.id_gmail !== null">
+                    <img src="assets/images/gmail.png" alt="Gmail" >
+                  </ng-container>
+                </td>
+                <td><p>{{ client.nom_client }}</p></td>
+                <td><p>{{ client.prenom_client }}</p></td>
+                <td><p>{{ client.pseudo_client }}</p></td>
+                <td><span class="status completed">{{ client.point_client }} X</span></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          
+          
+          
+        </div>
+      
+     
+        <div class="todo game-box-shadow">
+          <div class="head">
+            <span class="num" *ngIf="selectedClient">Point<br>{{ selectedClient.point_client }} X</span>
+            <img src="{{ selectedClient?.photo_profil || 'assets/images/profile.jpeg' }}">
+            <h3 *ngIf="selectedClient">{{ selectedClient.pseudo_client }}</h3>
+          </div>
+          <ul class="todo-list">
+            <li class="completed">
+              <p>Email :</p>
+              <span *ngIf="selectedClient">{{ selectedClient.email_client }}</span>
+            </li>
+            <li class="completed">
+              <p>Date de création :</p>
+              <span *ngIf="selectedClient">{{ selectedClient.date_de_creation }}</span>
+            </li>
+            <li class="completed">
+              <p>Date de validation :</p>
+              <span *ngIf="selectedClient">{{ selectedClient.date_de_validation }}</span>
+            </li>
+            <li class="completed">
+              <p>Date de modification :</p>
+              <span *ngIf="selectedClient">{{ selectedClient.date_de_modification }}</span>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center"> 2023 © Xtreme Tournoi
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->

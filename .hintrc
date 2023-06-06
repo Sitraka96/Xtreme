@@ -4,14 +4,12 @@
   ],
   "hints": {
     "meta-viewport": "off",
-    "detect-css-reflows/paint": "off",
-    "detect-css-reflows/layout": "off",
-    "detect-css-reflows/composite": "off",
-    "axe/text-alternatives": "off",
-    "compat-api/css": "off",
-    "button-type": "off",
-    "axe/name-role-value": "off",
-    "no-inline-styles": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
     "axe/forms": [
       "default",
       {
