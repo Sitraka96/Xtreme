@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-y="false">
+  <div class="ion-content-scroll-host ion-padding">
+    <div class="container">
+      <ion-searchbar></ion-searchbar>
+    </div>
+    <div class="container">
+      <ion-card *ngFor="let game of games">
+        <img src="{{ game.background_image }}"/>
+        <div class="info">
+          <h3 class="title">{{ game.name }}</h3>
+          <p>{{ game.released }}</p>
+        </div>
+      </ion-card>
+    </div>  
+  </div>
+</ion-content>
+<ion-footer>  
+  <ion-toolbar>
+      <ion-row>
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="gamePage()">
+            <ion-icon name="game-controller-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="2">
+          <ion-button color="dark"  (click)="statPage()">
+            <ion-icon slot="icon-only" name="stats-chart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="4"   >
+          <ion-fab  vertical="bottom" horizontal="center"   (click)="profilPage()">
+            <ion-fab-button color="light">
+              <ion-icon name="home"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark" (click)="retraitPage()">
+            <ion-icon name="cash"></ion-icon>
+          </ion-button>
+        </ion-col>
+    
+        <ion-col  size="2">
+          <ion-button color="dark"  (click)="shopPage()">
+            <ion-icon name="bag-handle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+</ion-footer>

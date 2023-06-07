@@ -1,0 +1,205 @@
+ion-toolbar {
+  --background: #212c35;
+  --color: white;
+  --border-top: 1px solid rgb(244, 244, 244);
+}
+.container {
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+
+  .preloader {
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    z-index: 111;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+  
+    position: relative;
+    margin: 100px auto;
+  }
+
+  .credit-card-title {
+    font-size: 22px;
+  }
+  
+  .or {
+    text-align: center;
+     padding: 1%;
+     font-size: 20px;
+     color: #a4a4a4;
+  }
+  .payment-overview {
+    position: relative;
+    text-align: center;
+    padding: 5%;
+    padding-top: 120px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .payment-details {
+    padding: 5%;
+    padding-top: 2%;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+.long-number {
+  width: 100%;
+  padding: 3%;
+}
+
+input {
+	color: #9e9fa0;
+	border: 0px solid #a6a7ab;
+	width: 100%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+textarea:focus, input:focus, select:focus {
+    outline: none;
+}
+
+.security-code {
+  width: 25%;
+  border: 1px solid #c6c6c6;
+  padding: 3%;
+  margin-top: 3%;
+}
+.security-code-p {
+  width: 70%;
+  padding: 7%;
+  padding-top: 3%;
+  font-size: 15px;
+  float: right;
+  color: #9e9fa0;
+  margin: 0 0 0px;
+  text-align: start;
+}
+
+.year-select {
+color: #9e9fa0;
+  width: 38%;
+ margin-left: 2%;
+  border: 1px solid;
+  padding: 3%;
+text-align: center;
+}
+
+.month-select {
+color: #9e9fa0;
+  width: 58%;
+  border: 1px solid;
+  padding: 3%;
+}
+
+.proceed-button {
+background: #00af6c;
+width: 100%;
+padding: 4%;
+border: 0px solid green;
+color: #fff;
+font-size: 20px;
+letter-spacing: 1px;
+font-weight: 700;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.paypal-button {
+background: #197faf;
+width: 100%;
+padding: 5%;
+border: 0px solid green;
+color: #fff;
+font-size: 20px;
+letter-spacing: 1px;
+font-weight: 700;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;	
+}
+.paypal-icon {
+font-size: 22px;
+color: #fff;
+}
+
+select {
+
+/* styling */
+background-color: white;
+border: thin solid blue;
+border-radius: 4px;
+display: inline-block;
+font: inherit;
+line-height: 1.5em;
+padding: 0.5em 3.5em 0.5em 1em;
+
+/* reset */
+
+margin: 0;      
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+//-webkit-appearance: none;
+//-moz-appearance: none;
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+/*input[type=number] {
+    -moz-appearance:textfield;
+}*/
